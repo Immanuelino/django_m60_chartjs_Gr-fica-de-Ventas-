@@ -1,0 +1,29 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    
+    fetch('/ventas/sales-data/')
+        .then(response => response.json())
+        .then(data => {
+            const salesChart = new Chart(ctx, {
+                type: 'bar', // Cambia a 'line' o cualquier otro tipo de gráfico si lo prefieres
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Ventas',
+                        data: data.data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error al cargar los datos:', error));
+});

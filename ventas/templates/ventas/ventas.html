@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Ventas</title>
+    {% load static %}  <!-- Cargar la etiqueta static -->
+    <!-- Incluye el CDN de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Gráfico de Ventas</h1>
+
+    <!-- Canvas donde se renderizará el gráfico -->
+    <canvas id="salesChart" width="400" height="400"></canvas>
+
+    <!-- Script para realizar la solicitud Ajax y mostrar el gráfico -->
+    <script src="{% static 'js/sales_chart.js' %}"></script>
+
+</body>
+</html>
